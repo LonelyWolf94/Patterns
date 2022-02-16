@@ -2,13 +2,13 @@
 {
     public class UniqueId
     {
-        private static int Id { get; set; } = 1;
+        private static int _id { get; set; } = 1;
 
         private UniqueId() {}
 
         public static int GetId()
         {
-            return Id++;
+            return _id++;
         }
 
     }
