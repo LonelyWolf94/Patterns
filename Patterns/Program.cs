@@ -11,7 +11,7 @@ namespace Patterns
         {
             PdfMetadata pdfMetadata = (PdfMetadata)MetadataFactory.GetMetadata("pdf");
             VideoMetadata videoMetadata = (VideoMetadata)MetadataFactory.GetMetadata("video");
-
+            
             pdfMetadata.Title = "How to write good code";
             pdfMetadata.Description = "How to write excellent code";
             pdfMetadata.QuantityPages = 25;
@@ -27,6 +27,13 @@ namespace Patterns
 
             senderManager.SendByEmail(pdfMetadata).SendByTelegram(pdfMetadata);
             senderManager.SendByFacebook(videoMetadata).SendByEmail(videoMetadata);
+
+            var text = "How to cook tasty borsh,In this brochure tells how to cook tasty borsh,3";
+
+            var borshPdfMetadata = Converter.ConvertTextToPdfMetadata(text);
+
+            Console.WriteLine(borshPdfMetadata);
+            senderManager.SendByEmail(borshPdfMetadata);
         }
     }
 }
